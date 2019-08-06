@@ -1,0 +1,41 @@
+{{#each errors}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{text}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/each}}
+
+<div class="col-md-4 mx-auto">
+  <div class="card">
+    <div class="card-header">
+      <h3>Editar Evento</h3>
+    </div>
+    <div class="card-body">
+      <form action="/eventos/edit-evento/{{evento._id}}?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="form-group">
+          <input type="text" name="title" class="form-control" value="{{evento.title}}"/>
+        </div>
+        <div class="form-group">
+          <textarea name="description" class="form-control">{{evento.description}}</textarea>
+        </div>
+         <div class="form-group">
+          <input type="text" name="place" class="form-control" value="{{evento.place}}" placeholder="Lugar" autofocus/>
+        </div>
+        <div class="form-group">
+          <input type="date" name="fecha" class="form-control" value="{{evento.fecha}}" placeholder="Fecha" autofocus/>
+        </div>
+        <div class="form-group">
+          <input type="time" name="time" class="form-control" value="{{evento.time}}" placeholder="Hora" autofocus/>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" type="submit">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

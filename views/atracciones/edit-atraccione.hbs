@@ -1,0 +1,41 @@
+{{#each errors}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{text}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/each}}
+
+<div class="col-md-4 mx-auto">
+  <div class="card">
+    <div class="card-header">
+      <h3>Editar Atracciones</h3>
+    </div>
+    <div class="card-body">
+      <form action="/atracciones/edit-atraccione/{{atraccione._id}}?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="form-group">
+          <input type="text" name="title" class="form-control" value="{{atraccione.title}}"/>
+        </div>
+        <div class="form-group">
+          <textarea name="description" class="form-control">{{atraccione.description}}</textarea>
+        </div>
+        <div class="form-group">
+          <input type="text" name="place" class="form-control" value="{{atraccione.place}}"/>
+        </div>
+        <div class="input-group mb-3">
+          <div class="custom-file">
+            <input type="file" name="image" class="custom-file-input" value="{{atraccione.path}}" id="inputGroupFile02">
+            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+            </div>        
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" type="submit">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

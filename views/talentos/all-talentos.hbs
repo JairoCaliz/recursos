@@ -1,0 +1,27 @@
+<div class="row animated bounceInLeft">
+  {{#each talentos}}
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title d-flex justify-content-between align-items-center">
+          {{ title }} <a href="/talentos/edit/{{_id}}"><i class="fas fa-edit"></i></a>
+        </h4>
+        <p>{{ description }}</p>
+        <!-- DELETE REQUEST -->
+        <form action="/talentos/delete/{{_id}}?_method=DELETE" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger btn-block btn-sm">Borrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <div class="card mx-auto">
+    <div class="card-body">
+      <h1>Hola {{user.name}}</h1>
+      <p clsss="lead">Todavía no hay talentos.</p>
+      <a href="/talentos/add" class="btn btn-success btn-block">Crear Talentos!</a>
+    </div>
+  </div>
+  {{/each}}
+</div>
